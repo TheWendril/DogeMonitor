@@ -1,5 +1,6 @@
 import json
 import dotenv
+from threading import Thread
 from src.modules.data_fetching import DataFetching
 from src.modules.currency_data import data_currency
 
@@ -11,6 +12,7 @@ class MoneyBalance:
         api_url = dotenv.get_key(dotenv.find_dotenv('./src/config/.env'), 'api_url')
         self.data_fetching = DataFetching(api_url)
         self.users_data = None
+        self.data_currency = data_currency
 
         with open('./src/config/users.json', 'r') as UsersFile:
             self.users_data = json.load(UsersFile)

@@ -1,14 +1,10 @@
 import os
 import terminalplot
-from src.modules import data_fetching
 from termcolor import colored
 from src.modules.currency_data import data_currency
 
 
 class ScreenRender:
-
-    def __init__(self):
-        self.dataFetchingInstance = data_fetching.DataFetching("https://economia.awesomeapi.com.br/json/last/DOGE-BRL")
 
     def render_balance(self, user_data):
 
@@ -34,5 +30,5 @@ class ScreenRender:
 
         if prices:
             y = data_currency.money_price
-            x = range(len(data_currency.money_price) - 1)
+            x = range(len(data_currency.money_price))
             terminalplot.plot(x, y)

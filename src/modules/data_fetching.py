@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 class DataFetching:
 
     def __init__(self, api_url):
